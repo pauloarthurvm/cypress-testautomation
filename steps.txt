@@ -1,0 +1,10 @@
+# cd your/project/path
+
+Start the project
+# npm -i init
+
+Install Cypress
+# npm install cypress --save-dev
+
+Start Cypress Runner to check
+# node_modules\.bin\cypress open
