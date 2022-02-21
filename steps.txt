@@ -8,3 +8,8 @@ Install Cypress
 
 Start Cypress Runner to check
 # node_modules\.bin\cypress open
+
+Run test suite
+--headed -> show the browser
+--browser chrome -> select the browser
+node_modules\.bin\cypress run --spec cypress\integration\examples\*.js --headed
