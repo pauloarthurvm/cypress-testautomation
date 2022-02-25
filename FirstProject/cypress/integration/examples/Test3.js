@@ -12,7 +12,18 @@ describe('My Third Test Suite', function() {
         // Check more than 1 checkbox
         cy.get('input[type="checkbox"]').check(['option2', 'option3'])
 
+        // Static dropdown
         cy.get('select').select('option2').should('have.value', 'option2')
+
+        // Dynamic dropdown
+        cy.get('#autocomplete').type("ind")
+        cy.get('.ui-menu-item').each(($el, index, $list) => {
+            if ($el.text() === 'India') {
+                cy.wrap($el).click()
+            }
+        })
+        cy.get('#autocomplete').should('have.value', 'India')
+
     })
 
 })
