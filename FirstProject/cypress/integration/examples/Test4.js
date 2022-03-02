@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe('My Third Test Suite', function() {
+describe('My Fourth Test Suite', function() {
 
     it('TC01', function() {
 
@@ -20,6 +20,10 @@ describe('My Third Test Suite', function() {
             // Mocha comparison
             expect(str).to.equal('Hello , Are you sure you want to confirm?')
         })
+
+        // Use .invoke to invoke a function
+        // removeAttr is a jquery function
+        cy.get('#opentab').invoke('removeAttr', 'target').click()
 
     })
 
