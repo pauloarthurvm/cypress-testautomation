@@ -13,3 +13,6 @@ Run test suite
 --headed -> show the browser
 --browser chrome -> select the browser
 node_modules\.bin\cypress run --spec cypress\integration\examples\*.js --headed
+
+To work with frames need another library/node node_module
+# npm install -D cypress-iframe
