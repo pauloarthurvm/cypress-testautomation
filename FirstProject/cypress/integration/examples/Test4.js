@@ -25,6 +25,9 @@ describe('My Fourth Test Suite', function() {
         // removeAttr is a jquery function
         cy.get('#opentab').invoke('removeAttr', 'target').click()
 
+        cy.url().should('include', 'https://www.rahulshettyacademy.com/#/index')
+        cy.go('back')
+
     })
 
 })
