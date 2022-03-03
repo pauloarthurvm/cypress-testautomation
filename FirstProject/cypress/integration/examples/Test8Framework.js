@@ -1,4 +1,6 @@
 /// <reference types="Cypress" />
+import HomePage from "../pageObjects/HomePage"
+import HomePage from "../pageObjects/HomePage"
 
 describe('My Eighth Test Suite', function() {
 
@@ -10,7 +12,6 @@ describe('My Eighth Test Suite', function() {
     })
 
     it('TC01', function() {
-
         cy.visit('https://rahulshettyacademy.com/angularpractice/')
         cy.get("input[name='name']:nth-child(2)").type(this.data.name)
         cy.get("select").select(this.data.gender)
@@ -27,6 +28,10 @@ describe('My Eighth Test Suite', function() {
         this.data.productName.forEach(function(element) {
             cy.selectProduct(element)
         })
+    })
+
+    it("TC02 - Same but using pageObject", function() {
+        const HomePage = new HomePage()
 
     })
 
