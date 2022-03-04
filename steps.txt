@@ -13,6 +13,10 @@ Run test suite
 --headed -> show the browser
 --browser chrome -> select the browser
 node_modules\.bin\cypress run --spec cypress\integration\examples\*.js --headed
+node_modules\.bin\cypress run --spec cypress\integration\examples\Test8Framework.js --headed
+
+Using env var in command line
+node_modules\.bin\cypress run --spec cypress\integration\examples\Test8Framework.js --headed --env url=http://google.com
 
 To work with frames need another library/node node_module
 # npm install -D cypress-iframe

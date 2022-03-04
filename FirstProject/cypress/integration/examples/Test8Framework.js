@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
-import HomePage from "../pageObjects/HomePage"
-import ProductPage from "../pageObjects/ProductPage"
+import HomePage from "../../support/pageObjects/HomePage"
+import ProductPage from "../../support/pageObjects/ProductPage"
 
 describe('My Eighth Test Suite', function() {
 
@@ -34,7 +34,7 @@ describe('My Eighth Test Suite', function() {
         Cypress.config("defaultCommandTimeout", 8000)
         const homePage = new HomePage()
         const productPage = new ProductPage()
-        cy.visit(Cypress.env("url"))
+        cy.visit(Cypress.env("url") + "/angularpractice")
         homePage.getEditBox().type(this.data.name)
         homePage.getGender().select(this.data.gender)
         
