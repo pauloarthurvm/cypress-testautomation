@@ -52,6 +52,21 @@ describe('My Eighth Test Suite', function() {
         })
 
         productPage.getCheckoutButton().click()
+
+        var sum = 0
+        cy.get("tr td:nth-child(4) strong").each(($e1, index, $list) => {
+            cy.log($e1.text())
+            var result = $e1.text().split(" ")
+            result = result[1].trim()
+            sum = Number(sum) + Number(result)
+        }).then(function() {
+            cy.log(sum)
+        })
+        cy.get("h3 strong").then(function(e1) {
+            var result = e1.text().split(" ")
+            result = result[1].trim()
+            expect(Number(result)).to.equal(sum)
+        })
         cy.get(':nth-child(4) > :nth-child(5) > .btn').click()
         cy.get('#country').type("India")
         cy.get(".suggestions > ul > li > a").click()
