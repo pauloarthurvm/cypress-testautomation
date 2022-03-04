@@ -4,7 +4,7 @@
 /dist
 /tmp
 /out-tsc
-/mochawesome-report
+*/mochawesome-report
 
 # Runtime data
 pids
