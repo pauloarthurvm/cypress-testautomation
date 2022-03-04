@@ -25,3 +25,9 @@ To work with frames need another library/node node_module
 Global functions are created in support/commands
 PageObjects are in integration/pageObjects
 Global data driven are in fixtures/*.json
+
+Running and record results
+node_modules\.bin\cypress run --spec cypress\integration\examples\Test8Framework.js --headed --record --key 21291320-a7c0-4169-b22b-b2f1df057e18
+
+Using mochawesome
+node_modules\.bin\cypress run --spec cypress\integration\examples\Test8Framework.js --reporter mochawesome
