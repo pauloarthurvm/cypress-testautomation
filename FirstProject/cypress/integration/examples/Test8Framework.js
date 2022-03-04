@@ -31,6 +31,7 @@ describe('My Eighth Test Suite', function() {
     })
 
     it("TC02 - Same but using pageObject", function() {
+        Cypress.config("defaultCommandTimeout", 8000)
         const homePage = new HomePage()
         const productPage = new ProductPage()
         cy.visit('https://rahulshettyacademy.com/angularpractice/')
@@ -51,6 +52,18 @@ describe('My Eighth Test Suite', function() {
         })
 
         productPage.getCheckoutButton().click()
+        cy.get(':nth-child(4) > :nth-child(5) > .btn').click()
+        cy.get('#country').type("India")
+        cy.get(".suggestions > ul > li > a").click()
+        cy.get('.checkbox').click()
+        cy.get("input[type='submit']").click()
+        // To way to verify text
+        // cy.get('.alert').should("include.text", "Success! Thank you! Your order will be delivered in next few weeks")
+        cy.get(".alert").then(function(e1) {
+            // const actualText = e1.text()
+            expect(e1.text().includes("Success")).to.be.true
+        })
+
 
     })
 
