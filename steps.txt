@@ -13,7 +13,7 @@ Run test suite
 --headed -> show the browser
 --browser chrome -> select the browser
 node_modules\.bin\cypress run --spec cypress\integration\examples\*.js --headed
-node_modules\.bin\cypress run --spec cypress\integration\examples\Test8Framework.js --headed
+node_modules\.bin\cypress run --spec cypress\integration\examples\Test8Framework.js --headed --no-exit
 
 Using env var in command line
 node_modules\.bin\cypress run --spec cypress\integration\examples\Test8Framework.js --headed --env url=http://google.com
@@ -31,3 +31,9 @@ node_modules\.bin\cypress run --spec cypress\integration\examples\Test8Framework
 
 Using mochawesome
 node_modules\.bin\cypress run --spec cypress\integration\examples\Test8Framework.js --reporter mochawesome
+
+Using cucumber/bdd
+node_modules\.bin\cypress run --spec cypress\integration\examples\bdd\ecommerce.feature --headed --browser chrome --no-exit
+
+Using tags, like @Smole or @Regression
+npx cypress-tags run -e TAGS="@Smoke" --headed --browser chrome --no-exit

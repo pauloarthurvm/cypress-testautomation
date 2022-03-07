@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 */mochawesome-report
+*/cypress/cucumber-json
+*/reports
 
 # Runtime data
 pids
