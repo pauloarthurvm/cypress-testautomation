@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules\\.bin\\cypress run --spec cypress\\integration\\examples\\Test8Framework.js --no-exit",
+    "headTest": "npm run test -- --headed",
+    "chromeTest": "npm run test -- --headed --browser chrome --parallel",
+    "recordDashboardTest": "npm run test -- --record --key 21291320-a7c0-4169-b22b-b2f1df057e18 --reporter mochawesome",
+    "greenKartTest": "node_modules\\.bin\\cypress run --spec \"cypress\\integration\\greenKart\\*\""
   },
   "author": "",
   "license": "ISC",
