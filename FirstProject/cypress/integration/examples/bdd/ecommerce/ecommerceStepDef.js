@@ -5,6 +5,8 @@ import ProductPage from "../../../../support/pageObjects/ProductPage"
 const homePage = new HomePage()
 const productPage = new ProductPage()
 
+let name
+
 Given ("I open Ecommerce page", function(){
     cy.visit(Cypress.env("url") + "/angularpractice")
 })
@@ -47,4 +49,20 @@ Then ("Select the country, submit and verify Success message", () => {
         // const actualText = e1.text()
         expect(e1.text().includes("Success")).to.be.true
     })
+})
+
+When ("I fill the form details", function(dataTable) {
+    name = dataTable.rawTable[1][0]
+    homePage.getEditBox().type(dataTable.rawTable[1][0])
+    homePage.getGender().select(dataTable.rawTable[1][1])
+})
+
+Then ("validate the forms behaviour", function() {
+    homePage.getTowWayDataBinding().should("have.value", name)
+    homePage.getEditBox().should("have.attr", "minlength", "2")
+    homePage.getEntrepreneaur().should("be.disabled")
+})
+
+And ("select the shop page", function() {
+    // homePage.getShopTab().click()
 })
