@@ -5,7 +5,7 @@ import ProductPage from "../../support/pageObjects/ProductPage"
 describe('My Eighth Test Suite', function() {
 
     beforeEach(function() {
-        // runs once before all rests in the block
+        // runs once before all tests in the block
         cy.fixture("test8framework").then(function(data) {
             this.data = data
         })
