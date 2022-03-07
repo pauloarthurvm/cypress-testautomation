@@ -1,13 +1,15 @@
 import { Given, When, Then } from  "cypress-cucumber-preprocessor/steps"
+import HomePage from "../../../../support/pageObjects/HomePage"
+import ProductPage from "../../../../support/pageObjects/ProductPage"
 
 const homePage = new HomePage()
 const productPage = new ProductPage()
 
-Given ("I open Ecommerce page", () => {
+Given ("I open Ecommerce page", function(){
     cy.visit(Cypress.env("url") + "/angularpractice")
 })
 
-When ("I add items to cart", () => {
+When ("I add items to cart", function(){
     homePage.getShopTab().click()
 
     this.data.productName.forEach(function(element) {
@@ -16,7 +18,7 @@ When ("I add items to cart", () => {
     productPage.getCheckoutButton().click()
 })
 
-And ("Validate the total prices", () => {
+And ("Validate the total prices", function(){
     var sum = 0
     cy.get("tr td:nth-child(4) strong").each(($e1, index, $list) => {
         cy.log($e1.text())
@@ -33,7 +35,7 @@ And ("Validate the total prices", () => {
     })
 })
 
-Then ("Select the country, submit and verify (Success) message", () => {
+Then ("Select the country, submit and verify Success message", () => {
     cy.get(':nth-child(4) > :nth-child(5) > .btn').click()
     cy.get('#country').type("India")
     cy.get(".suggestions > ul > li > a").click()
