@@ -11,5 +11,14 @@ describe('My Session Test Suite', function() {
                 }
             })
         })
+        cy.get(".card-body button:last-of-type").eq(1).click()
+        cy.get("[routerlink*='cart']").click()
+        cy.contains("Checkout").click()
+        cy.get("[placeholder*='Select Country']").type("ind")
+        cy.get(".ta-results button").each(($e1, index, $list) => {
+            if ($e1.text === "India") {
+                cy.wrap($e1).click()
+            }
+        })
     })
 })
