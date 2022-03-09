@@ -1,5 +1,7 @@
 /// <reference types="Cypress" />
 
+const neatCsv = require("neat-csv")
+
 describe('My Session Test Suite', function() {
 
     it('TC01', function() {
@@ -20,6 +22,14 @@ describe('My Session Test Suite', function() {
             if ($e1.text === "India") {
                 cy.wrap($e1).click()
             }
+        })
+        cy.get(".action__submit").click()
+        cy.wait(2000)
+        cy.get(".order-summary button").click()
+        Cypress.config("fileServerFolder")
+        cy.readFile("path/to/file.csv").then(async function(text) {
+            const csv = await neatCsv(text)
+            console.log(csv)
         })
     })
 })
