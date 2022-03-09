@@ -27,7 +27,8 @@
     "cypress-iframe": "^1.0.1",
     "mocha": "^9.2.1",
     "mochawesome": "^7.1.1",
-    "multiple-cucumber-html-reporter": "^1.19.0"
+    "multiple-cucumber-html-reporter": "^1.19.0",
+    "neat-csv": "7.0.0"
   },
   "dependencies": {}
 }
